@@ -1,3 +1,18 @@
 body {
     background-color: azure;
+    margin: 0;
+}
+
+main{
+    margin-left: 3em;
+}
+header{
+    text-align: center;
+}
+
+img{
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
 }
