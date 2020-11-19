@@ -4,6 +4,7 @@ $(document).ready(function () {
   console.log('JQ');
   // Establish Click Listeners
   setupClickListeners()
+  $('#viewKoalas').on('click', '.transferReady', readyForTransfer);
   // load existing koalas on page load
   getKoalas();
 
@@ -24,6 +25,7 @@ function setupClickListeners() {
     };
     // call saveKoala with the new obejct
     saveKoala(koalaToSend);
+    readyForTransfer(koalaToSend)
   });
 }
 
@@ -50,11 +52,17 @@ function saveKoala(newKoala) {
 function renderKoalas(koalas) {
   $('#viewKoalas').empty();
   for (let item of koalas) {
-    $('#viewKoalas').append(`<tr></tr>
+    $('#viewKoalas').append(`<tr data-id=${item.id}></tr>
                             <td>${item.name}</td>
                             <td>${item.age}</td>
                             <td>${item.gender}</td>
                             <td>${item.ready_to_transfer}</td>
+                            <td><button class="transferReady">Ready for Transfer</button></td>
                             <td>${item.notes}</td>`);
   }
+}
+
+function readyForTransfer(koalaToSend){
+  console.log('Updating Transfer Info');
+  let koalaId = $(this).closest('tr').data('id');
 }
