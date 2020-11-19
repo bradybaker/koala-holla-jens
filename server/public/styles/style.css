@@ -19,6 +19,10 @@ table {
     text-align: center;
 }
 
+tbody {
+    background-color: azure;
+}
+
 img{
     max-width:230px;
     max-height:95px;
