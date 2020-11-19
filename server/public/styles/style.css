@@ -9,6 +9,7 @@ body {
 
 main{
     margin-left: 3em;
+    margin-right: 3em;
 }
 header{
     text-align: center;
@@ -16,6 +17,10 @@ header{
 
 table {
     text-align: center;
+}
+
+tbody {
+    background-color: azure;
 }
 
 img{
