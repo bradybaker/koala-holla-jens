@@ -5,12 +5,8 @@ $(document).ready(function () {
   // Establish Click Listeners
   setupClickListeners()
   $('#viewKoalas').on('click', '.transferReady', transferStatus);
-    
-
   // load existing koalas on page load
   getKoalas();
-  
-
 }); // end doc ready
 
 function setupClickListeners() {
