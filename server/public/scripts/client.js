@@ -35,7 +35,7 @@ function getKoalas() {
     url: '/koalas'
   }).then(function (response) {
     console.log(response)
-    // ADD RENDER FUNCITON HERE
+    renderKoalas(response);
   }).catch(function (error) {
     console.log('Error in client.js GET', error)
   });
@@ -45,4 +45,16 @@ function saveKoala(newKoala) {
   console.log('in saveKoala', newKoala);
   // ajax call to server to get koalas
 
+}
+
+function renderKoalas(koalas) {
+  $('#viewKoalas').empty();
+  for (let item of koalas) {
+    $('#viewKoalas').append(`<tr></tr>
+                            <td>${item.name}</td>
+                            <td>${item.age}</td>
+                            <td>${item.gender}</td>
+                            <td>${item.ready_to_transfer}</td>
+                            <td>${item.notes}</td>`)
+  }
 }
