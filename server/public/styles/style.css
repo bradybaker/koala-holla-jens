@@ -1,6 +1,10 @@
 body {
+    background-image: url(https://cdn.pixabay.com/photo/2019/05/26/12/23/koala-4230218_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: azure;
     margin: 0;
+    color: white;
 }
 
 main{
