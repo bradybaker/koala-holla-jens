@@ -44,6 +44,17 @@ function getKoalas() {
 function saveKoala(newKoala) {
   console.log('in saveKoala', newKoala);
   // ajax call to server to get koalas
+  $.ajax({
+    type: 'POST',
+    url: '/koalas',
+    data: newKoala
+  }).then( function(response) {
+    getKoalas();
+    emptyKoalas();
+  }).catch( function(error) {
+    console.log('Error', error);
+    alert('Something bad happened. Try again later.');
+  })
 
 }
 
@@ -57,4 +68,12 @@ function renderKoalas(koalas) {
                             <td>${item.ready_to_transfer}</td>
                             <td>${item.notes}</td>`);
   }
+}
+
+function emptyKoalas() {
+    $('#nameIn').val('');
+    $('#ageIn').val('');
+    $('#genderIn').val('');
+    $('#readyForTransferIn').val('');
+    $('#notesIn').val('');
 }
