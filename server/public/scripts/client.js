@@ -55,6 +55,6 @@ function renderKoalas(koalas) {
                             <td>${item.age}</td>
                             <td>${item.gender}</td>
                             <td>${item.ready_to_transfer}</td>
-                            <td>${item.notes}</td>`)
+                            <td>${item.notes}</td>`);
   }
 }
