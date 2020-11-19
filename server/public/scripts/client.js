@@ -4,10 +4,9 @@ $(document).ready(function () {
   console.log('JQ');
   // Establish Click Listeners
   setupClickListeners()
-  $('#viewKoalas').on('click', '.transferReady', readyForTransfer);
+  $('#viewKoalas').on('click', '.transferReady', transferStatus);
   // load existing koalas on page load
   getKoalas();
-
 }); // end doc ready
 
 function setupClickListeners() {
@@ -25,7 +24,6 @@ function setupClickListeners() {
     };
     // call saveKoala with the new obejct
     saveKoala(koalaToSend);
-    readyForTransfer(koalaToSend)
   });
 }
 
@@ -63,19 +61,29 @@ function saveKoala(newKoala) {
 function renderKoalas(koalas) {
   $('#viewKoalas').empty();
   for (let item of koalas) {
-    $('#viewKoalas').append(`<tr data-id=${item.id}></tr>
+    $('#viewKoalas').append(`<tr data-id="${item.id}">
                             <td>${item.name}</td>
                             <td>${item.age}</td>
                             <td>${item.gender}</td>
                             <td>${item.ready_to_transfer}</td>
                             <td><button class="transferReady">Ready for Transfer</button></td>
-                            <td>${item.notes}</td>`);
+                            <td>${item.notes}</td></tr>`);
   }
 }
 
-function readyForTransfer(koalaToSend){
-  console.log('Updating Transfer Info');
+function transferStatus(){
   let koalaId = $(this).closest('tr').data('id');
+  console.log(koalaId);
+  $.ajax({
+    method: 'PUT',
+    url: `/koalas/${koalaId}`, 
+    data: koalaId
+}).then( function(response) {
+    getKoalas();
+}).catch( function(error){
+    console.log('Error:', error);
+    alert('Something bad happened. Try again later');
+})
 }
 
   function emptyKoalas() {
