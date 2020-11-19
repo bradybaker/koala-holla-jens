@@ -7,6 +7,8 @@ CREATE TABLE koalas(
   	"notes" VARCHAR(150)
 );
 
+SELECT
+
 INSERT INTO "koalas" ("name", "gender", "age", "ready_to_transfer", "notes") VALUES ('Ted', 'M', 7, 'Y', 'Ted likes to cuddle, but only at night, otherwise, he likes to roam the one tree branch that he is capable of reaching.');
 INSERT INTO "koalas" ("name", "gender", "age", "ready_to_transfer", "notes") VALUES ('Francis', 'F', 2, 'N', 'Francis is a picky eater who only eats sage green shades of bamboo...too yellow and she spits it out, too green and will not touch it.');
 INSERT INTO "koalas" ("name", "gender", "age", "ready_to_transfer", "notes") VALUES ('Karen', 'F', 11, 'N', '...well she is a Karen, enough said!');
