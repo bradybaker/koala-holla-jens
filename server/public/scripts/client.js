@@ -5,6 +5,7 @@ $(document).ready(function () {
   // Establish Click Listeners
   setupClickListeners()
   $('#viewKoalas').on('click', '.transferReady', transferStatus);
+  $('#viewKoalas').on('click', '.deleteBtn', deleteKoala);
   // load existing koalas on page load
   getKoalas();
 }); // end doc ready
@@ -67,7 +68,9 @@ function renderKoalas(koalas) {
                             <td>${item.gender}</td>
                             <td>${item.ready_to_transfer}</td>
                             <td><button class="transferReady btn btn-outline-primary">Ready for Transfer</button></td>
-                            <td>${item.notes}</td></tr>`);
+                            <td>${item.notes}</td>
+                            <td><button class="deleteBtn btn btn-outline-primary">Delete</button></td>
+                            </tr>`);
   }
 }
 
@@ -92,4 +95,17 @@ function transferStatus(){
     $('#genderIn').val('');
     $('#readyForTransferIn').val('');
     $('#notesIn').val('');
+}
+
+function deleteKoala() {
+  let koalaId = $(this).closest('tr').data('id');
+  $.ajax({
+    method: 'DELETE', 
+    url: `/koalas/${koalaId}`
+  }).then((function (resposne) {
+    getKoalas();
+  })).catch(function(error){
+    console.log('Error in deleting Koala:', error);
+    alert('Something bad happened. Try again later');
+  })
 }
