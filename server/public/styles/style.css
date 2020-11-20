@@ -29,3 +29,15 @@ img{
     width: auto;
     height: auto;
 }
+
+th, td{
+    color: white;
+}
+
+#genderIn, #readyForTransferIn{
+    background-color: #343a40;
+}
+
+.transferReady{
+    background-color: #343a40;
+}
