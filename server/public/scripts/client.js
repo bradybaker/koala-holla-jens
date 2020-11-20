@@ -44,20 +44,32 @@ function getKoalas() {
 
 function saveKoala(newKoala) {
   console.log('in saveKoala', newKoala);
-  // ajax call to server to get koalas
-  $.ajax({
-    type: 'POST',
-    url: '/koalas',
-    data: newKoala
-  }).then( function(response) {
-    getKoalas();
-    emptyKoalas();
-  }).catch( function(error) {
-    console.log('Error', error);
-    alert('Something bad happened. Try again later.');
-  })
+  // checks the input values to make sure they entered a name and age
+  if(!newKoala.name || !newKoala.age){
+    $('#error-message').empty();
+    $('#error-message').addClass('alert alert-danger');
+    $('#error-message').append('Please enter a name and age.');
+  } 
+    // else ajax call to server to get koalas
+  else{
+    $.ajax({
+      type: 'POST',
+      url: '/koalas',
+      data: newKoala
+    }).then( function(response) {
+      getKoalas();
+      // Empty inputs.
+      emptyKoalas();
+      $('#error-message').empty();
+      //removes class to get rid of error message
+      $('#error-message').removeClass('alert alert-danger');
+    }).catch( function(error) {
+      console.log('Error', error);
+      alert('Something bad happened. Try again later.');
+    })
+  }
 
-}
+}//end saveKoala
 
 function renderKoalas(koalas) {
   $('#viewKoalas').empty();
@@ -88,7 +100,7 @@ function transferStatus(){
     alert('Something bad happened. Try again later');
 })
 }
-
+// Empties the input values after a successful post.
   function emptyKoalas() {
     $('#nameIn').val('');
     $('#ageIn').val('');

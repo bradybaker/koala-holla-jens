@@ -41,3 +41,7 @@ th, td{
 .transferReady{
     background-color: #343a40;
 }
+#error-message{
+    font-size: 16px;
+    width: 352px;
+}
