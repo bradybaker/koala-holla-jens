@@ -13,14 +13,25 @@ main{
 }
 header{
     text-align: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
 }
 
 table {
     text-align: center;
+    border-collapse: collapse;
 }
 
-tbody {
-    background-color: azure;
+thead {
+    border: 3px solid #fff;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: cadetblue;
+  }
+
+table, th, td {
+    border-bottom: 1px solid #fff;
 }
 
 img{
@@ -41,7 +52,12 @@ th, td{
 .transferReady{
     background-color: #343a40;
 }
-#error-message{
+
+#addKoala {
+    margin-bottom: 3em;
+}
+
+#error-message {
     font-size: 16px;
     width: 352px;
 }

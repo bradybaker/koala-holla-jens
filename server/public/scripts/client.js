@@ -81,7 +81,7 @@ function renderKoalas(koalas) {
                             <td>${item.ready_to_transfer}</td>
                             <td><button class="transferReady btn btn-outline-light">Ready for Transfer</button></td>
                             <td>${item.notes}</td>
-                            <td><button class="deleteBtn btn btn-outline-primary">Delete</button></td>
+                            <td><button class="deleteBtn btn btn-outline-light">Delete</button></td>
                             </tr>`);
   }
 }
